@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacked Bar Chart with Lines Example</title><!--
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>-->	<script src="/js/char-4.4.7.js"></script>	<script src="/js/chartjs-plugin-datalabels.min.js"></script>	
+</head>
+<body>
+    <canvas id="myChart" style="width:100vw;height:80vh;"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+                datasets: [{
+                    label: 'Dataset 1',
+                    data: [36, 43, 25, 7, 5, 37, 108, 198, 135, 90, 61, 89, 117, 98, 67, 105, 86, 143, 118, 148, 145, 88, 99, 57],
+                    backgroundColor: 'rgb(255, 0, 0)',
+                    borderColor: 'rgb(0, 0, 0)',
+                    borderWidth: 1,
+                    stack: 'Stack 0',
+                    order: 10
+                }, {
+                    label: 'Dataset 2',
+                    data: [131, 108, 65, 70, 75, 123, 258, 841, 715, 702, 573, 615, 668, 606, 576, 774, 737, 1705, 2463, 960, 642, 369, 242, 123],
+                    backgroundColor: 'rgb(0, 255, 0)',
+                    borderColor: 'rgb(0, 0, 0)',
+                    borderWidth: 1,
+                    stack: 'Stack 0',
+                    order: 10
+                }, {
+                    label: 'Dataset 3',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderColor: 'rgba(0, 0, 0, 0)',
+                    borderWidth: 0,
+                    stack: 'Stack 0',
+                    order: 10
+                }, {
+                    label: 'Line Dataset 1',
+                    data: [50, 55, 45, 30, 25, 60, 90, 110, 100, 85, 70, 80, 95, 90, 80, 85, 70, 105, 95, 115, 110, 80, 85, 65],
+                    type: 'line',
+                    backgroundColor: 'rgba(0, 0, 255, 0.5)',
+                    borderColor: 'rgb(0, 0, 255)',
+                    borderWidth: 2,
+                    fill: false,
+                    yAxisID: 'y1',
+                    order: 2
+                }, {
+                    label: 'Line Dataset 2',
+                    data: [40, 45, 35, 20, 15, 50, 80, 100, 90, 75, 60, 70, 85, 80, 70, 75, 60, 95, 85, 105, 100, 70, 75, 55],
+                    type: 'line',
+                    backgroundColor: 'rgba(255, 165, 0, 0.5)',
+                    borderColor: 'rgb(255, 165, 0)',
+                    borderWidth: 2,
+                    fill: false,
+                    yAxisID: 'y1',
+                    order: 3
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false // 顯示圖例說明
+                    },
+                    title: {
+                        display: true,
+                        text: '速度(限速50KM/HR) 與折線圖',
+                        font: {
+                            size: 18
+                        }
+                    },
+                    datalabels: {
+                        color: function(context) {
+                            return context.dataset.label === 'Dataset 3' ? 'black' : 'white';
+                        },
+                        display: function(context) {
+                            if (context.dataset.label === 'Dataset 1') {
+                                return context.dataset.data[context.dataIndex] > 100;
+                            }
+                            return true;
+                        },
+                        align: function(context) {
+                            return context.dataset.label === 'Dataset 3' ? 'end' : 'center';
+                        },
+                        anchor: function(context) {
+                            return context.dataset.label === 'Dataset 3' ? 'end' : 'center';
+                        },
+                        font: function(context) {
+                            if (context.dataset.label === 'Dataset 3') {
+                                return {
+                                    weight: 'normal' // 不加粗
+                                };
+                            } else {
+                                return {
+                                    weight: 'bold'
+                                };
+                            }
+                        },
+                        formatter: function(value, context) {
+                            if (context.dataset.label === 'Dataset 3') {
+                                var dataset1Value = context.chart.data.datasets[0].data[context.dataIndex];
+                                var dataset2Value = context.chart.data.datasets[1].data[context.dataIndex];
+                                return value + dataset1Value + dataset2Value;
+                            }
+                            return value;
+                        },
+                        textStrokeColor: 'black',
+                        textStrokeWidth: 1,
+                        textShadowBlur: 1,
+                        textShadowColor: 'rgba(0,0,0,0.25)',
+                        draw: function(context) {
+                            var ctx = context.chart.ctx;
+                            var text = context.formattedValue;
+                            var x = context.x;
+                            var y = context.y;
+                            ctx.save();
+                            ctx.shadowColor = 'rgba(0, 0, 0, 1)';
+                            ctx.shadowBlur = 1;
+                            ctx.fillText(text, x, y);
+                            ctx.restore();
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true,
+                        max: 3000,
+                        ticks: {
+                            callback: function(value) {
+                                return value + ' 輛';
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: '車輛',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    },
+                    y1: {
+                        position: 'right',
+                        ticks: {
+                            callback: function(value) {
+                                return value + ' km/hr';
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: '速度 (km/hr)',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                }
+            },
+            plugins: [ChartDataLabels],
+        });
+    </script>
+</body>
+</html>

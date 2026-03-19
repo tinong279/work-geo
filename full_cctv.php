@@ -28,6 +28,7 @@ function captureSnapshot($url)
 {
     $snapshotDirFs = __DIR__ . '/snapshots';
     $snapshotDirWeb = './snapshots';
+    $cacheSeconds = 30; // 30秒內直接用舊圖，可改成 10 / 60
 
     if (!is_dir($snapshotDirFs)) {
         mkdir($snapshotDirFs, 0777, true);
@@ -36,9 +37,15 @@ function captureSnapshot($url)
     $filename = md5($url) . '.jpg';
     $savePath = $snapshotDirFs . '/' . $filename;
 
-    // Windows XAMPP 使用你目前查到的 Python 真實路徑
-    $python = 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\python.exe';
+    // 如果快取還有效，就直接回傳，不重新抓
+    if (file_exists($savePath) && filesize($savePath) > 0) {
+        $fileAge = time() - filemtime($savePath);
+        if ($fileAge < $cacheSeconds) {
+            return $snapshotDirWeb . '/' . $filename . '?v=' . filemtime($savePath);
+        }
+    }
 
+    $python = 'C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\python.exe';
     $script = __DIR__ . '/capture_snapshot.py';
 
     if (!file_exists($script)) {
@@ -228,7 +235,7 @@ foreach ($raw_data as $i => $cam) {
 
                     <div class="w3-container w3-border-left w3-border-right w3-border-bottom" style="overflow-x:auto;">
                         <div class="video-card">
-                            <div class="status-badge">SNAPSHOT</div>
+
 
                             <?php if ($localImg !== ''): ?>
                                 <img

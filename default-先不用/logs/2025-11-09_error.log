@@ -1,0 +1,3 @@
+[Sun Nov 09 11:27:48.148419 2025] [php:error] [pid 8588:tid 636] [client 127.0.0.1:63869] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Mon Nov 10 07:52:26.582056 2025] [php:error] [pid 8256:tid 1996] [client 172.16.36.181:61749] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://192.168.60.79/manager-page/home-1.php
+[Mon Nov 10 07:52:26.582056 2025] [php:error] [pid 8256:tid 1988] [client 172.16.36.181:58292] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://192.168.60.79/manager-page/home-1.php

@@ -1,0 +1,3 @@
+[Sat Oct 04 08:40:54.812390 2025] [php:error] [pid 8540:tid 1996] [client 127.0.0.1:50148] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\robot\\lora-in.php on line 609
+[Sat Oct 04 09:11:50.660342 2025] [php:error] [pid 8540:tid 1988] [client 127.0.0.1:56320] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4
+[Sat Oct 04 09:12:02.692461 2025] [php:error] [pid 8540:tid 1996] [client 127.0.0.1:56363] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8

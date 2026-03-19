@@ -1,0 +1,6 @@
+[Wed Oct 01 08:20:58.137438 2025] [php:error] [pid 8656:tid 1976] [client 127.0.0.1:52430] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4
+[Wed Oct 01 08:21:09.125698 2025] [php:error] [pid 8656:tid 1992] [client 127.0.0.1:52480] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Wed Oct 01 08:51:18.862428 2025] [php:error] [pid 8656:tid 1960] [client 127.0.0.1:58235] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Wed Oct 01 08:51:27.916497 2025] [php:error] [pid 8656:tid 1980] [client 127.0.0.1:58281] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4
+[Wed Oct 01 08:52:01.053264 2025] [php:error] [pid 8656:tid 1976] [client 127.0.0.1:58346] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Wed Oct 01 22:00:15.928392 2025] [php:error] [pid 8540:tid 1980] [client 127.0.0.1:51765] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 46

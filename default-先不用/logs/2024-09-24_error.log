@@ -1,0 +1,2 @@
+[Tue Sep 24 10:42:22.521515 2024] [php:error] [pid 8300:tid 2060] [client 127.0.0.1:49805] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://127.0.0.1/manager-page/home-1.php
+[Tue Sep 24 10:42:22.543153 2024] [php:error] [pid 8300:tid 2056] [client 127.0.0.1:49804] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://127.0.0.1/manager-page/home-1.php

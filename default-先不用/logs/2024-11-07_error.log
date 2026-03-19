@@ -1,0 +1,7 @@
+[Thu Nov 07 14:43:38.485631 2024] [php:error] [pid 8292:tid 2020] [client 111.70.30.251:38508] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Thu Nov 07 15:06:56.344530 2024] [php:error] [pid 8292:tid 2020] [client 111.70.30.251:39466] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Thu Nov 07 15:47:25.041904 2024] [php:error] [pid 8292:tid 2036] [client 111.70.30.251:41118] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Thu Nov 07 15:47:27.975416 2024] [php:error] [pid 8292:tid 2020] [client 111.70.30.251:41126] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Thu Nov 07 20:21:24.893024 2024] [php:warn] [pid 8292:tid 2020] [client 127.0.0.1:51937] PHP Warning:  Trying to access array offset on value of type null in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 114
+[Thu Nov 07 20:21:26.260506 2024] [php:error] [pid 8292:tid 2028] [client 127.0.0.1:51730] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 46
+[Thu Nov 07 21:10:43.175909 2024] [php:error] [pid 8292:tid 2036] [client 111.70.30.251:37186] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8

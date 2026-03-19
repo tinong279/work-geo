@@ -1,0 +1,2 @@
+[Mon Aug 18 07:52:58.448683 2025] [php:error] [pid 8796:tid 1996] [client 172.16.36.181:52273] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://192.168.60.79/manager-page/home-2.php
+[Mon Aug 18 07:52:58.464724 2025] [php:error] [pid 8796:tid 1980] [client 172.16.36.181:52278] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://192.168.60.79/manager-page/home-2.php

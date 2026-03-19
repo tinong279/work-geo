@@ -1,0 +1,4 @@
+[Sun Nov 09 18:33:11.765140 2025] [ssl:warn] [pid 5552:tid 356] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Sun Nov 09 18:33:11.839682 2025] [ssl:warn] [pid 5552:tid 356] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Sun Nov 09 18:33:12.343723 2025] [ssl:warn] [pid 8256:tid 392] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Sun Nov 09 18:33:12.430280 2025] [ssl:warn] [pid 8256:tid 392] AH01909: localhost:443:0 server certificate does NOT include an ID which matches the server name

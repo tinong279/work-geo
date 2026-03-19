@@ -1,0 +1,1 @@
+[Tue Feb 06 10:01:29.766396 2024] [php:error] [pid 8212:tid 1876] [client 127.0.0.1:51050] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://127.0.0.1/manager-page/home-4.php

@@ -1,0 +1,2 @@
+[Tue Oct 22 12:42:38.616576 2024] [php:error] [pid 8352:tid 2036] [client 127.0.0.1:60335] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\manager-page\\api\\snapshot.php on line 61, referer: http://127.0.0.1/manager-page/home-3.php
+[Wed Oct 23 07:27:17.285992 2024] [php:error] [pid 8352:tid 2012] [client 127.0.0.1:52535] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://127.0.0.1/manager-page/home-3.php

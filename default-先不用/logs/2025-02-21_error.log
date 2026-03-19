@@ -1,0 +1,2 @@
+[Fri Feb 21 08:29:39.604030 2025] [php:error] [pid 8372:tid 2060] [client 127.0.0.1:60964] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 46
+[Fri Feb 21 09:52:02.414389 2025] [php:warn] [pid 8372:tid 2020] [client 127.0.0.1:60749] PHP Warning:  Trying to access array offset on value of type null in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 114

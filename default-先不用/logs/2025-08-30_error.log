@@ -1,0 +1,8 @@
+[Sat Aug 30 11:00:38.178527 2025] [php:error] [pid 23168:tid 1824] [client 127.0.0.1:56883] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Aug 30 11:00:53.438450 2025] [php:error] [pid 23168:tid 1984] [client 127.0.0.1:56925] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Aug 30 11:01:14.514763 2025] [php:error] [pid 23168:tid 1864] [client 127.0.0.1:56997] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Aug 30 11:01:35.437140 2025] [php:error] [pid 23168:tid 1908] [client 127.0.0.1:57080] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Aug 30 11:02:05.542567 2025] [php:error] [pid 23168:tid 1824] [client 127.0.0.1:57162] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Aug 30 11:02:20.753416 2025] [php:error] [pid 23168:tid 1984] [client 127.0.0.1:57233] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Aug 30 11:02:41.674808 2025] [php:error] [pid 23168:tid 1864] [client 127.0.0.1:57309] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Aug 30 14:43:00.775760 2025] [php:warn] [pid 8956:tid 2008] [client 127.0.0.1:58361] PHP Warning:  Trying to access array offset on value of type null in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 114

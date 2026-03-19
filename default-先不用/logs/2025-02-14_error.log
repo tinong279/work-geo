@@ -1,0 +1,2 @@
+[Fri Feb 14 08:16:20.134365 2025] [php:warn] [pid 8372:tid 2012] [client 127.0.0.1:62338] PHP Warning:  Trying to access array offset on value of type null in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 114
+[Sat Feb 15 06:58:55.512646 2025] [php:error] [pid 8372:tid 2012] [client 127.0.0.1:57254] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\session.php on line 5, referer: http://127.0.0.1/manager-page/home-2.php

@@ -1,0 +1,10 @@
+[Sun Nov 16 08:44:14.402988 2025] [php:error] [pid 8400:tid 1980] [client 127.0.0.1:58204] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sun Nov 16 08:44:35.482777 2025] [php:error] [pid 8400:tid 2008] [client 127.0.0.1:58274] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sun Nov 16 08:44:59.552058 2025] [php:error] [pid 8400:tid 1968] [client 127.0.0.1:58333] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sun Nov 16 08:45:11.615794 2025] [php:error] [pid 8400:tid 1920] [client 127.0.0.1:58388] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sun Nov 16 10:12:17.156026 2025] [php:error] [pid 8320:tid 1996] [client 127.0.0.1:51765] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 46
+[Mon Nov 17 07:58:19.123202 2025] [php:error] [pid 8320:tid 1992] [client 127.0.0.1:55160] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Mon Nov 17 07:58:43.211295 2025] [php:error] [pid 8320:tid 1996] [client 127.0.0.1:55203] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Mon Nov 17 07:58:49.231143 2025] [php:error] [pid 8320:tid 1988] [client 127.0.0.1:55266] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4
+[Mon Nov 17 07:59:19.312368 2025] [php:error] [pid 8320:tid 1984] [client 127.0.0.1:55317] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Mon Nov 17 07:59:25.343811 2025] [php:error] [pid 8320:tid 1976] [client 127.0.0.1:55376] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8

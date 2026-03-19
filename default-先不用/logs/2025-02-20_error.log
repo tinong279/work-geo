@@ -1,0 +1,1 @@
+[Thu Feb 20 19:46:57.455800 2025] [php:error] [pid 8372:tid 2020] [client 127.0.0.1:64564] PHP Fatal error:  Maximum execution time of 5 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\manager-page\\api\\snapshot.php on line 61, referer: http://127.0.0.1/manager-page/home-2.php

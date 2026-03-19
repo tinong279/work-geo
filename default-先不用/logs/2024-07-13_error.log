@@ -1,0 +1,1 @@
+[Sat Jul 13 14:04:15.943243 2024] [php:error] [pid 8612:tid 2024] [client 127.0.0.1:51765] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 46

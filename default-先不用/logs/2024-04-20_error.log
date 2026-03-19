@@ -1,0 +1,1 @@
+[Sun Apr 21 07:03:18.635682 2024] [php:error] [pid 8412:tid 2020] [client 111.70.30.251:50168] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4

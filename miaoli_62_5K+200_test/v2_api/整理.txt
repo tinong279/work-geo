@@ -1,0 +1,23 @@
+abnormal_data_receiver.php  -接收python的資料市電狀態和電池電壓
+
+config.php                  -系統全域設定檔與攝影機路徑轉換器
+
+cron_check.php              -自動化警示偵測與通報腳本
+
+db.php                      -全域資料庫連線驅動器
+
+do_confirm.php              -人工告警確認與圖片本地化
+
+fetch_images.php            -前端影像資料接口 (API)
+
+fetch_status.php            -硬體健康狀態接口 (Health Check API)
+
+image_helper.php            -全域影像處理與通報核心工具庫
+
+index.php                   -系統主控台視窗 (Main Dashboard)
+
+preview_alert.php           -影像審核與發佈預覽頁 (Human-in-the-loop)
+
+fetch_history.php           -時間區間後端處理邏輯
+
+query_page.php              -時間區間查詢

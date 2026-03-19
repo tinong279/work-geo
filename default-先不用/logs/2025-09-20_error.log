@@ -1,0 +1,2 @@
+[Sat Sep 20 09:25:01.038238 2025] [php:warn] [pid 8640:tid 1992] [client 127.0.0.1:56066] PHP Warning:  Trying to access array offset on value of type null in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 114
+[Sat Sep 20 11:49:07.735374 2025] [php:warn] [pid 8640:tid 1992] [client 127.0.0.1:51302] PHP Warning:  Trying to access array offset on value of type null in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 114

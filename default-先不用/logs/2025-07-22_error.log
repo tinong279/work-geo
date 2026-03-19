@@ -1,0 +1,4 @@
+[Tue Jul 22 08:29:01.937241 2025] [php:warn] [pid 8656:tid 2004] [client 127.0.0.1:56839] PHP Warning:  Trying to access array offset on value of type null in C:\\xampp\\htdocs\\default\\public_html\\robot\\alarm-history-in.php on line 114
+[Wed Jul 23 05:10:51.333906 2025] [php:error] [pid 8656:tid 2000] [client 127.0.0.1:60736] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Wed Jul 23 05:30:14.422012 2025] [php:error] [pid 8656:tid 2012] [client 127.0.0.1:64454] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Wed Jul 23 06:42:03.533078 2025] [php:error] [pid 8656:tid 2008] [client 127.0.0.1:63082] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4

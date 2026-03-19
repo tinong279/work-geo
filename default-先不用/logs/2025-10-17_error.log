@@ -1,0 +1,7 @@
+[Fri Oct 17 19:06:45.244898 2025] [php:error] [pid 8884:tid 1996] [client 127.0.0.1:49912] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Oct 18 07:26:25.741080 2025] [php:error] [pid 8884:tid 1996] [client 127.0.0.1:63853] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Oct 18 07:56:37.556494 2025] [php:error] [pid 8884:tid 1980] [client 127.0.0.1:53386] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Oct 18 07:57:01.857398 2025] [php:error] [pid 8884:tid 1992] [client 127.0.0.1:53444] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Oct 18 07:57:26.029648 2025] [php:error] [pid 8884:tid 1984] [client 127.0.0.1:53514] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 8
+[Sat Oct 18 07:57:34.802853 2025] [php:error] [pid 8884:tid 1976] [client 127.0.0.1:53596] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4
+[Sat Oct 18 07:57:53.080163 2025] [php:error] [pid 8884:tid 1980] [client 127.0.0.1:53650] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in C:\\xampp\\htdocs\\default\\ConnMySQL.php on line 4

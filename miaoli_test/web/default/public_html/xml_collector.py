@@ -1,7 +1,9 @@
+# xml_collector.py
 import requests
 import xml.etree.ElementTree as ET
 import json
 from datetime import datetime
+import time
 
 # 設定
 XML_URL = "https://tisvcloud.freeway.gov.tw/history/motc20/LiveTraffic.xml"
@@ -87,3 +89,7 @@ def update_traffic():
 
 if __name__ == "__main__":
     update_traffic()
+
+while True:
+    update_traffic()
+    time.sleep(60)

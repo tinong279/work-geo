@@ -1,0 +1,220 @@
+/**
+ * 側邊欄導航樣式
+ * 
+ * 說明：定義側邊欄導航的所有樣式
+ * - 側邊欄容器
+ * - 側邊欄標題
+ * - 導航選單
+ * - 即時資料分頁
+ * - 地圖圖層控制
+ * - 用戶資訊
+ */
+
+/* ========== 側邊欄容器 ========== */
+.sidebar {
+    width: 220px;
+    background-color: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: var(--space-16);
+}
+
+/* ========== 側邊欄捲軸 ========== */
+.sidebar-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-secondary);
+}
+
+/* ========== 側邊欄導航 ========== */
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ========== 側邊欄標題 ========== */
+.sidebar h1 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-24);
+    color: var(--color-text);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-12);
+    margin-bottom: var(--space-24);
+    padding-bottom: var(--space-16);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.9), rgba(168, 85, 247, 0.9));
+    border-radius: var(--radius-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.logo-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.sidebar-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.sidebar-title span {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+}
+
+/* ========== 即時資料分頁樣式 ========== */
+.sidebar-section {
+    margin-top: var(--space-20);
+    padding: 0;
+}
+
+.sidebar-section>.nav-button:last-child,
+.sidebar-section>a.nav-button:last-child {
+    margin-bottom: 0;
+}
+
+#realtime-data-toggle {
+    margin-bottom: 0;
+}
+
+#realtime-data-list {
+    padding: var(--space-8) 0 0 0;
+}
+
+.category-section {
+    margin-bottom: var(--space-8);
+}
+
+/* ========== 點位分頁 ========== */
+#location-tabs,
+.location-tabs {
+    margin: 0;
+    padding: 0;
+}
+
+.location-tab button {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-8) var(--space-12);
+    border: none;
+    background: rgba(236, 72, 153, 0.08);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-base);
+    margin-bottom: var(--space-8);
+    transition: all var(--duration-normal) var(--ease-standard);
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+.location-tab button:hover,
+.location-tab button:focus {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
+    transform: translateX(2px);
+    outline: none;
+}
+
+/* ========== 地圖圖層控制 ========== */
+.map-layers-section {
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-16);
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-border);
+}
+
+.section-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 var(--space-16);
+    margin-bottom: var(--space-12);
+}
+
+/* ========== 用戶資訊區 ========== */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-border);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-12);
+    background: var(--color-secondary);
+    border-radius: var(--radius-base);
+    margin-bottom: var(--space-12);
+}
+
+.user-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    fill: var(--color-text-secondary);
+}
+
+.user-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-name {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-role {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}

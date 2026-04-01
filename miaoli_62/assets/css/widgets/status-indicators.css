@@ -1,0 +1,207 @@
+/**
+ * 狀態指示器樣式
+ * 
+ * 說明：各種狀態徽章、指示器和顏色樣式
+ */
+
+/* ========== 狀態徽章 ========== */
+.widget-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: var(--font-weight-semibold);
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ========== 狀態顏色 ========== */
+.status-normal {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #064e3b;
+    border: 1px solid #10b981;
+}
+
+.widget-status-badge.status-normal .status-indicator,
+.status-normal .status-indicator,
+.status-normal>.status-indicator {
+    background: #10b981 !important;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+    animation: pulse-green 2s infinite;
+}
+
+.status-warning {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #713f12;
+    border: 1px solid #f59e0b;
+}
+
+.widget-status-badge.status-warning .status-indicator,
+.status-warning .status-indicator,
+.status-warning>.status-indicator {
+    background: #f59e0b !important;
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
+    animation: pulse-yellow 2s infinite;
+}
+
+.status-alert {
+    background: linear-gradient(135deg, #fed7aa, #fdba74);
+    color: #7c2d12;
+    border: 1px solid #f97316;
+}
+
+.widget-status-badge.status-alert .status-indicator,
+.status-alert .status-indicator,
+.status-alert>.status-indicator {
+    background: #f97316 !important;
+    box-shadow: 0 0 6px rgba(249, 115, 22, 0.8);
+    animation: pulse-orange 2s infinite;
+}
+
+.status-danger {
+    background: linear-gradient(135deg, #fecaca, #fca5a5);
+    color: #7f1d1d;
+    border: 1px solid #ef4444;
+}
+
+.widget-status-badge.status-danger .status-indicator,
+.status-danger .status-indicator,
+.status-danger>.status-indicator {
+    background: #ef4444 !important;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.8);
+    animation: pulse-red 1s infinite;
+}
+
+.status-offline {
+    background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+    color: #111827;
+    border: 1px solid #9ca3af;
+}
+
+.widget-status-badge.status-offline .status-indicator,
+.status-offline .status-indicator,
+.status-offline>.status-indicator {
+    background: #6b7280 !important;
+}
+
+/* ========== 狀態指示器動畫 ========== */
+@keyframes pulse-green {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(16, 185, 129, 1);
+    }
+}
+
+@keyframes pulse-yellow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(245, 158, 11, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(245, 158, 11, 1);
+    }
+}
+
+@keyframes pulse-orange {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(249, 115, 22, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(249, 115, 22, 1);
+    }
+}
+
+@keyframes pulse-red {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 16px rgba(239, 68, 68, 1);
+    }
+}
+
+/* ========== 市電狀態指示器 ========== */
+.power-status-indicator {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.power-status-indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+}
+
+.power-status-indicator.status-normal {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+.power-status-indicator.status-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+}
+
+.power-status-indicator.status-offline {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    box-shadow: 0 4px 16px rgba(107, 114, 128, 0.3);
+    animation: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ========== 脈動邊框動畫 ========== */
+@keyframes pulse-border {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 4px 24px rgba(239, 68, 68, 0.5);
+    }
+}

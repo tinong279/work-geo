@@ -1,0 +1,331 @@
+/**
+ * 主儀表板頁面樣式
+ * 
+ * 檔案：index.php
+ * 說明：主儀表板介面專用樣式，包含地圖、圖層控制等
+ */
+
+/* ========== 內容區域布局 ========== */
+.content-area {
+    flex: 1;
+    display: flex;
+    gap: var(--space-16);
+    padding: var(--space-16);
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+/* ========== 地圖容器 ========== */
+#map {
+    position: relative;
+    flex: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s var(--ease-standard);
+}
+
+.map-fullscreen {
+    flex: 1 !important;
+}
+
+.map-compressed {
+    flex: 0 0 50% !important;
+}
+
+/* ========== 感測器面板 ========== */
+.sensor-panel {
+    display: none;
+    flex-direction: column;
+    width: 0;
+    gap: var(--space-16);
+    opacity: 0;
+    transition: all 0.4s var(--ease-standard);
+    overflow-y: auto;
+}
+
+.sensor-panel.active {
+    display: flex;
+    width: 50%;
+    opacity: 1;
+}
+
+.sensor-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sensor-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sensor-panel::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.sensor-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-secondary);
+}
+
+/* ========== 感測器卡片 ========== */
+.sensor-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-20);
+    box-shadow: var(--shadow-sm);
+}
+
+.sensor-card h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-16);
+    color: var(--color-text);
+}
+
+/* ========== 狀態網格 ========== */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-12);
+    margin-bottom: var(--space-20);
+}
+
+.status-item {
+    padding: var(--space-16);
+    border-radius: var(--radius-md);
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.status-item.success {
+    background-color: var(--color-bg-3);
+    border-color: var(--color-success);
+}
+
+.status-item.error {
+    background-color: var(--color-bg-4);
+    border-color: var(--color-error);
+}
+
+.status-icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.status-label {
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+.status-value {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+/* ========== 資料區段 ========== */
+.data-section {
+    padding: var(--space-20);
+    background-color: var(--color-bg-3);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-success);
+}
+
+.data-section h3 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-12);
+    color: var(--color-text);
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-8) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.data-row:last-child {
+    border-bottom: none;
+}
+
+.data-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.data-value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+/* ========== 地圖圖層控制 ========== */
+.layer-controls {
+    position: absolute;
+    top: var(--space-16);
+    right: var(--space-16);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.layer-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-12) var(--space-16);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all var(--duration-normal);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.layer-toggle-btn:hover {
+    background: var(--color-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.layer-status {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-border);
+    border: 2px solid var(--color-text-secondary);
+    transition: all var(--duration-normal);
+}
+
+.layer-toggle-btn.active .layer-status {
+    background: var(--color-success);
+    border-color: var(--color-success);
+    box-shadow: 0 0 8px rgba(50, 184, 198, 0.6);
+}
+
+/* ========== 地圖圖例 ========== */
+.map-legend {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    left: auto !important;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.map-legend .legend-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.map-legend svg {
+    display: block;
+}
+
+.map-legend svg text {
+    font-family: 'Noto Sans TC', Arial, sans-serif;
+}
+
+/* ========== Sidebar 即時資料分頁 ========== */
+.sidebar-section {
+    margin-top: var(--space-20);
+    padding: 0;
+}
+
+#realtime-data-toggle {
+    margin-bottom: 0;
+}
+
+#realtime-data-list {
+    padding: var(--space-8) 0 0 0;
+}
+
+.category-section {
+    margin-bottom: var(--space-8);
+}
+
+.category-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: var(--space-8) var(--space-12);
+    border: none;
+    background: rgba(50, 184, 198, 0.1);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    font-family: var(--font-family-base);
+    margin-bottom: var(--space-4);
+}
+
+.category-button:hover {
+    background: rgba(50, 184, 198, 0.2);
+    transform: translateX(2px);
+}
+
+.category-button svg {
+    transition: transform 0.2s ease;
+}
+
+#location-tabs,
+.location-tabs {
+    margin: 0;
+    padding: 0;
+}
+
+.location-tab button {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-8) var(--space-12);
+    border: none;
+    background: rgba(236, 72, 153, 0.08);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-base);
+    margin-bottom: var(--space-8);
+    transition: all var(--duration-normal) var(--ease-standard);
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+.location-tab button:hover,
+.location-tab button:focus {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
+    transform: translateX(2px);
+    outline: none;
+}
+
+/* ========== 響應式設計 ========== */
+@media (max-width: 1024px) {
+    .content-area {
+        flex-direction: column;
+    }
+
+    .map-compressed {
+        flex: 0 0 40% !important;
+    }
+
+    .sensor-panel.active {
+        width: 100%;
+    }
+}

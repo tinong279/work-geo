@@ -1,0 +1,351 @@
+/**
+ * 按鈕元件樣式
+ * 
+ * 說明：定義專案中所有按鈕樣式
+ * - 主要按鈕
+ * - 次要按鈕
+ * - 導航按鈕
+ * - 圖示按鈕
+ * - 特殊按鈕
+ */
+
+/* ========== 基礎按鈕樣式 ========== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-20);
+    border: none;
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    font-family: var(--font-family-base);
+}
+
+/* ========== 主要按鈕 ========== */
+.btn-primary {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 10px 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* ========== 次要按鈕 ========== */
+.btn-secondary {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 10px 24px;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.btn-secondary:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== 導航按鈕 ========== */
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    width: 100%;
+    padding: var(--space-12) var(--space-16);
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(168, 85, 247, 0.12));
+    border: none;
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    font-family: var(--font-family-base);
+    margin-bottom: var(--space-16);
+}
+
+.nav-button:hover {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2));
+    transform: translateY(-1px);
+}
+
+.nav-button.active {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2));
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========== 圖示按鈕 ========== */
+.btn-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-icon-action {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.btn-icon-action:hover {
+    background: var(--color-border);
+    transform: translateY(-1px);
+}
+
+.btn-icon-action svg {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-icon-action.delete-user-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--color-error);
+}
+
+.btn-icon-action.delete-user-btn:hover svg {
+    fill: var(--color-error);
+}
+
+/* ========== 關閉按鈕 ========== */
+.close-button {
+    position: absolute;
+    top: var(--space-12);
+    right: var(--space-12);
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--duration-normal) var(--ease-standard);
+    z-index: 1000;
+}
+
+.close-button:hover {
+    background: var(--color-border);
+}
+
+/* ========== 設定按鈕 ========== */
+.settings-button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    width: 100%;
+    padding: var(--space-12) var(--space-16);
+    background: rgba(168, 85, 247, 0.1);
+    border: none;
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    margin-bottom: var(--space-8);
+}
+
+.settings-button:hover {
+    background: rgba(168, 85, 247, 0.15);
+    transform: translateY(-1px);
+}
+
+/* ========== 登出按鈕 ========== */
+.logout-button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    width: 100%;
+    padding: var(--space-12) var(--space-16);
+    background: rgba(239, 68, 68, 0.1);
+    border: none;
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-error);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.logout-button:hover {
+    background: rgba(239, 68, 68, 0.15);
+    transform: translateY(-1px);
+}
+
+/* ========== 分類按鈕 ========== */
+.category-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: var(--space-8) var(--space-12);
+    border: none;
+    background: rgba(50, 184, 198, 0.1);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    font-family: var(--font-family-base);
+    margin-bottom: var(--space-4);
+}
+
+.category-button:hover {
+    background: rgba(50, 184, 198, 0.2);
+    transform: translateX(2px);
+}
+
+.category-button svg {
+    transition: transform 0.2s ease;
+}
+
+/* ========== 圖層切換按鈕 ========== */
+.layer-toggle-btn {
+    position: relative;
+}
+
+.layer-toggle-btn .layer-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--color-text-secondary);
+    margin-left: auto;
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.layer-toggle-btn.active .layer-status {
+    background: var(--color-success);
+    border-color: var(--color-success);
+    box-shadow: 0 0 8px rgba(50, 184, 198, 0.6);
+}
+
+.layer-toggle-btn.loading .layer-status {
+    animation: pulse-loading 1s infinite;
+}
+
+@keyframes pulse-loading {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* ========== 分頁按鈕 ========== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    margin-top: var(--space-16);
+}
+
+.pagination-btn {
+    padding: var(--space-8) var(--space-12);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* ========== 相機 Modal 按鈕 ========== */
+.camera-refresh-btn {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+    cursor: pointer;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    transition: all var(--duration-fast);
+    flex-shrink: 0;
+}
+
+.camera-refresh-btn:hover {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+    transform: rotate(180deg);
+}
+
+.camera-refresh-btn:active {
+    transform: rotate(360deg);
+}
+
+.camera-modal-close {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    font-size: 28px;
+    line-height: 1;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    transition: all var(--duration-fast);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.camera-modal-close:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: white;
+    transform: scale(1.05);
+}

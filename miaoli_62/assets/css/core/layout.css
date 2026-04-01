@@ -1,0 +1,170 @@
+/**
+ * 布局系統
+ * 
+ * 說明：定義頁面主要布局結構
+ * - Dashboard 容器
+ * - 主內容區
+ * - 內容區域
+ */
+
+/* ========== Dashboard 容器 ========== */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ========== 主內容區 ========== */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ========== 內容區域 ========== */
+.content-area {
+    flex: 1;
+    display: flex;
+    gap: var(--space-16);
+    padding: var(--space-16);
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-standard);
+}
+
+/* ========== 地圖容器 ========== */
+#map {
+    position: relative;
+    flex: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s var(--ease-standard);
+}
+
+.map-fullscreen {
+    flex: 1 !important;
+}
+
+.map-compressed {
+    flex: 0 0 50% !important;
+}
+
+/* ========== 感測器面板 ========== */
+.sensor-panel {
+    display: none;
+    flex-direction: column;
+    width: 0;
+    gap: var(--space-16);
+    opacity: 0;
+    transition: all 0.4s var(--ease-standard);
+    overflow-y: auto;
+}
+
+.sensor-panel.active {
+    display: flex;
+    width: 50%;
+    opacity: 1;
+}
+
+/* ========== 感測器卡片 ========== */
+.sensor-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-20);
+    box-shadow: var(--shadow-sm);
+}
+
+.sensor-card h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-16);
+    color: var(--color-text);
+}
+
+.sensor-detail-card {
+    position: relative;
+}
+
+/* ========== 狀態網格 ========== */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-12);
+    margin-bottom: var(--space-20);
+}
+
+.status-item {
+    padding: var(--space-16);
+    border-radius: var(--radius-md);
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.status-item.success {
+    background-color: var(--color-bg-3);
+    border-color: var(--color-success);
+}
+
+.status-item.error {
+    background-color: var(--color-bg-4);
+    border-color: var(--color-error);
+}
+
+.status-icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.status-label {
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+.status-value {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+/* ========== 資料區段 ========== */
+.data-section {
+    padding: var(--space-20);
+    background-color: var(--color-bg-3);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-success);
+}
+
+.data-section h3 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-12);
+    color: var(--color-text);
+}
+
+.data-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    text-align: center;
+}
+
+/* ========== 響應式設計 ========== */
+@media (max-width: 1024px) {
+    .content-area {
+        flex-direction: column;
+    }
+
+    .map-compressed {
+        flex: 0 0 40% !important;
+    }
+
+    .sensor-panel.active {
+        width: 100%;
+    }
+}

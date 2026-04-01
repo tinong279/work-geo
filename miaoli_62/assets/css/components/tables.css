@@ -1,0 +1,208 @@
+/**
+ * 表格元件樣式
+ * 
+ * 說明：定義專案中各類表格樣式
+ * - 用戶管理表格
+ * - 資料表格
+ * - 感測器表格
+ */
+
+/* ========== 表格容器 ========== */
+.users-table-container,
+.results-container,
+.table-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.results-container {
+    padding: var(--space-24);
+}
+
+/* ========== 表格標題區 ========== */
+.results-header,
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-16);
+    padding-bottom: var(--space-12);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.results-title,
+.table-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.results-count,
+.table-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+/* ========== 基礎表格樣式 ========== */
+.users-table,
+.data-table,
+.sensor-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* ========== 表頭樣式 ========== */
+.users-table thead,
+.data-table thead,
+.sensor-table thead {
+    background: var(--color-secondary);
+}
+
+.users-table th,
+.data-table th,
+.sensor-table th {
+    text-align: left;
+    padding: var(--space-16);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 感測器表格特殊樣式 */
+.sensor-table th {
+    padding: var(--space-8);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    border-bottom: 2px solid var(--color-border);
+    background: rgba(50, 184, 198, 0.05);
+}
+
+/* ========== 表格內容樣式 ========== */
+.users-table td,
+.data-table td,
+.sensor-table td {
+    padding: var(--space-16);
+    border-top: 1px solid var(--color-card-border);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+}
+
+.sensor-table td {
+    padding: var(--space-12) var(--space-8);
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-table th {
+    padding: var(--space-12);
+    border-bottom: 2px solid var(--color-border);
+    background: rgba(50, 184, 198, 0.05);
+}
+
+.data-table td {
+    padding: var(--space-12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ========== 表格 Hover 效果 ========== */
+.users-table tbody tr:hover,
+.data-table tbody tr:hover,
+.sensor-table tbody tr:hover {
+    background: var(--color-secondary);
+}
+
+.sensor-table tbody tr:hover {
+    background: rgba(50, 184, 198, 0.08);
+}
+
+.data-table tbody tr:hover {
+    background: rgba(50, 184, 198, 0.08);
+}
+
+/* ========== 表格特殊欄位 ========== */
+.username-cell {
+    font-weight: var(--font-weight-medium);
+}
+
+.actions-cell {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.sensor-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
+.sensor-value {
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    font-family: 'Courier New', monospace;
+    color: var(--color-text);
+}
+
+.sensor-unit {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-left: var(--space-4);
+}
+
+/* ========== 無資料顯示 ========== */
+.no-data {
+    text-align: center;
+    padding: var(--space-32);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+}
+
+/* ========== 圖片縮圖 ========== */
+.image-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radius-base);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.image-thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* ========== 角色徽章 ========== */
+.role-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.role-admin {
+    background: rgba(168, 85, 247, 0.15);
+    color: rgb(168, 85, 247);
+}
+
+.role-user {
+    background: var(--color-bg-1);
+    color: rgb(59, 130, 246);
+}
+
+/* ========== 權限顯示 ========== */
+.access-all {
+    color: var(--color-success);
+    font-weight: var(--font-weight-medium);
+}
+
+.no-access {
+    color: var(--color-text-secondary);
+}
+
+.access-count {
+    color: var(--color-text);
+}

@@ -1,0 +1,924 @@
+/**
+ * 感測器小工具樣式
+ * 
+ * 說明：各類感測器小工具的樣式定義
+ */
+
+/* ========== 小工具卡片基礎樣式 ========== */
+.sensor-widget {
+    margin-bottom: var(--space-16);
+    transition: all var(--duration-normal);
+}
+
+/* 狀態背景色 - 渲染整個卡片 */
+.sensor-widget.status-normal {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.04), rgba(34, 197, 94, 0.01));
+    border-left: 4px solid #10b981;
+}
+
+.sensor-widget.status-warning {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.06), rgba(234, 179, 8, 0.02));
+    border-left: 4px solid #eab308;
+}
+
+.sensor-widget.status-alert {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.06), rgba(249, 115, 22, 0.02));
+    border-left: 4px solid #f97316;
+}
+
+.sensor-widget.status-danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.06), rgba(239, 68, 68, 0.02));
+    border-left: 4px solid #ef4444;
+}
+
+.sensor-widget.status-offline {
+    background: linear-gradient(135deg, rgba(107, 114, 128, 0.05), rgba(107, 114, 128, 0.02));
+    border-left: 4px solid #6b7280;
+}
+
+/* 傾斜儀小工具不套用整體背景色 */
+.tilt-widget.status-normal,
+.tilt-widget.status-warning,
+.tilt-widget.status-alert,
+.tilt-widget.status-danger,
+.tilt-widget.status-offline {
+    background: var(--color-surface) !important;
+    border-left: none !important;
+    border: 1px solid var(--color-card-border) !important;
+}
+
+/* ========== 小工具容器布局 ========== */
+.widgets-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-16);
+}
+
+.widgets-container .sensor-widget {
+    flex: 1 1 100%;
+}
+
+/* 雨量筒和市電小工具並排顯示 */
+.widgets-container .rainfall-widget,
+.widgets-container .power-widget {
+    flex: 1 1 calc(50% - var(--space-8));
+    min-width: 280px;
+}
+
+/* ========== 小工具標題區 ========== */
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-16);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.widget-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    color: var(--color-primary);
+}
+
+.widget-header h3 {
+    flex: 1;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* ========== 小工具內容區 ========== */
+.widget-body {
+    padding: var(--space-20);
+}
+
+.widget-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-8);
+}
+
+.widget-time {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.widget-time.time-offline {
+    color: #ef4444;
+    font-weight: var(--font-weight-bold);
+}
+
+.widget-info {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--space-16) 0;
+}
+
+.widget-alert {
+    font-size: var(--font-size-base);
+    color: #dc2626;
+    font-weight: var(--font-weight-medium);
+    padding: var(--space-12);
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: var(--radius-base);
+    margin-top: var(--space-12);
+}
+
+/* ========== 傾斜儀小工具 ========== */
+.tilt-pair-group {
+    padding: 0;
+    margin-bottom: var(--space-16);
+}
+
+.tilt-pair-group:last-child {
+    margin-bottom: 0;
+}
+
+.tilt-pair-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: #3b82f6;
+    margin-bottom: var(--space-16);
+    padding: var(--space-12) var(--space-16);
+    background: rgba(59, 130, 246, 0.05);
+    border-left: 4px solid #3b82f6;
+    border-radius: var(--radius-base);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tilt-data-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+}
+
+.tilt-axes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+}
+
+.tilt-axis-card {
+    padding: var(--space-20);
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-12);
+    transition: all 0.3s ease;
+}
+
+.tilt-axis-card.status-normal {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(16, 185, 129, 0.01));
+    border-color: #10b981;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.tilt-axis-card.status-warning {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.05), rgba(234, 179, 8, 0.02));
+    border-color: #eab308;
+    box-shadow: 0 2px 8px rgba(234, 179, 8, 0.15);
+}
+
+.tilt-axis-card.status-alert {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.05), rgba(249, 115, 22, 0.02));
+    border-color: #f97316;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.15);
+}
+
+.tilt-axis-card.status-danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.02));
+    border-color: #ef4444;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+}
+
+.tilt-axis-card.status-offline {
+    background: linear-gradient(135deg, rgba(107, 114, 128, 0.03), rgba(107, 114, 128, 0.01));
+    border-color: #9ca3af;
+    box-shadow: 0 2px 8px rgba(107, 114, 128, 0.1);
+}
+
+.axis-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.axis-value-large {
+    font-size: 36px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1;
+}
+
+.axis-value-large .axis-unit {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    margin-left: 4px;
+}
+
+.axis-time-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--space-4);
+}
+
+.tilt-axis-card .axis-time {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+.tilt-axis-card .axis-time.time-offline {
+    color: #ef4444;
+    font-weight: var(--font-weight-bold);
+}
+
+/* 電池資訊卡片 */
+.tilt-battery-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    padding: var(--space-16) var(--space-20);
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.tilt-battery-card.status-normal {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(16, 185, 129, 0.01));
+    border-color: #10b981;
+}
+
+.tilt-battery-card.status-danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.02));
+    border-color: #ef4444;
+}
+
+.tilt-battery-card.status-offline {
+    background: linear-gradient(135deg, rgba(107, 114, 128, 0.03), rgba(107, 114, 128, 0.01));
+    border-color: #9ca3af;
+}
+
+.battery-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-base);
+    flex-shrink: 0;
+}
+
+.battery-info-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+}
+
+.battery-info-content .battery-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-secondary);
+    min-width: 80px;
+}
+
+.battery-value-display {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+}
+
+.battery-value-large {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1;
+}
+
+.battery-unit {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+}
+
+/* ========== 滯留物辨識小工具 ========== */
+.detection-widget-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+}
+
+.detection-left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+}
+
+.detection-image-container {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 3px solid #475569;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.detection-image-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.detection-image-container.status-danger {
+    border-color: #ef4444;
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+}
+
+.detection-image-container.status-normal {
+    border-color: #10b981;
+}
+
+.detection-image-container.status-offline {
+    border-color: #6b7280;
+    opacity: 0.6;
+}
+
+.detection-snapshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detection-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.detection-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: var(--space-12) var(--space-16);
+}
+
+.detection-label {
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detection-time-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-20);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-base);
+}
+
+.detection-time-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.detection-time-value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.detection-time-value.time-offline {
+    color: #ef4444;
+    font-weight: var(--font-weight-bold);
+}
+
+/* 串流影像面板 */
+.detection-right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    height: 100%;
+}
+
+.stream-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.stream-container {
+    flex: 1;
+    position: relative;
+    background: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 3px solid #475569;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stream-container:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.stream-preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.stream-container:hover .stream-preview-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.stream-play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(59, 130, 246, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.stream-container:hover .stream-play-button {
+    background: rgba(59, 130, 246, 1);
+    transform: scale(1.1);
+}
+
+.stream-play-button svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+    margin-left: 4px;
+}
+
+.stream-preview-text {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.stream-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stream-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .detection-widget-body {
+        grid-template-columns: 1fr;
+    }
+
+    .tilt-axes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== 電池小工具專用樣式 ========== */
+.battery-widget-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-20);
+    padding: var(--space-24) var(--space-20);
+}
+
+.battery-status-display {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.battery-voltage-display {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-8);
+}
+
+.battery-voltage-value {
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1;
+}
+
+.battery-voltage-unit {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+}
+
+.battery-time-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-20);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-base);
+    width: 100%;
+}
+
+.battery-time-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.battery-time-value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.battery-time-value.time-offline {
+    color: #ef4444;
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========== 市電監測小工具專用樣式 ========== */
+.power-widget-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-24);
+    padding: var(--space-24) var(--space-20);
+}
+
+.power-status-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-16);
+}
+
+.power-status-text {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.power-time-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-20);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-base);
+    width: 100%;
+}
+
+.power-time-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.power-time-value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.power-time-value.time-offline {
+    color: #ef4444;
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========== 雨量筒小工具專用樣式 ========== */
+.rainfall-widget-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-20);
+    padding: var(--space-24) var(--space-20);
+}
+
+.rainfall-status-display {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.rainfall-value-display {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-8);
+}
+
+.rainfall-value {
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: 1;
+}
+
+.rainfall-unit {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+}
+
+.rainfall-time-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-20);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-base);
+    width: 100%;
+}
+
+.rainfall-time-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.rainfall-time-value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.rainfall-time-value.time-offline {
+    color: #ef4444;
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========== CMS 小工具專用樣式 ========== */
+.cms-widget-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-20);
+}
+
+.cms-status-section {
+    display: flex;
+    justify-content: center;
+}
+
+.cms-image-container {
+    position: relative;
+    width: 70%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 3px solid #475569;
+}
+
+.cms-image-container::before {
+    content: '';
+    display: block;
+    padding-top: 75%;
+}
+
+.cms-display-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.cms-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: var(--space-12) var(--space-16);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.cms-image-container:hover .cms-info-overlay {
+    transform: translateY(0);
+}
+
+.cms-info-text {
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+}
+
+.cms-widget.status-offline .cms-display-image {
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+.cms-widget.status-offline .cms-image-container {
+    border-color: #6b7280;
+}
+
+.cms-time-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-20);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-base);
+}
+
+.cms-time-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.cms-time-value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+.cms-time-value.time-offline {
+    color: #ef4444;
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========== 水位計小工具專用樣式 ========== */
+.water-widget.status-normal,
+.water-widget.status-warning,
+.water-widget.status-alert,
+.water-widget.status-danger,
+.water-widget.status-offline {
+    background: var(--color-surface) !important;
+    border-left: none !important;
+    border: 1px solid var(--color-card-border) !important;
+}
+
+.water-level-card {
+    padding: var(--space-20);
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-12);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.water-level-card.status-normal {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(16, 185, 129, 0.01));
+    border-color: #10b981;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.water-level-card.status-warning {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.05), rgba(234, 179, 8, 0.02));
+    border-color: #eab308;
+    box-shadow: 0 2px 8px rgba(234, 179, 8, 0.15);
+}
+
+.water-level-card.status-alert {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.05), rgba(249, 115, 22, 0.02));
+    border-color: #f97316;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.15);
+}
+
+.water-level-card.status-danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.02));
+    border-color: #ef4444;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+}
+
+.water-level-card.status-offline {
+    background: linear-gradient(135deg, rgba(107, 114, 128, 0.03), rgba(107, 114, 128, 0.01));
+    border-color: #9ca3af;
+    box-shadow: 0 2px 8px rgba(107, 114, 128, 0.1);
+}
+
+/* ========== 閾值資訊顯示 ========== */
+.threshold-info {
+    margin-top: var(--space-16);
+    padding: var(--space-12);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border-radius: var(--radius-base);
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.threshold-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-6) 0;
+    color: var(--color-text-secondary);
+}
+
+.threshold-row:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.threshold-label {
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-weight-medium);
+}
+
+.threshold-info .threshold-label .status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: var(--space-8);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.threshold-info .threshold-label .status-indicator.status-warning {
+    background-color: #f59e0b !important;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.6) !important;
+}
+
+.threshold-info .threshold-label .status-indicator.status-alert {
+    background-color: #f97316 !important;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.6) !important;
+}
+
+.threshold-info .threshold-label .status-indicator.status-danger {
+    background-color: #ef4444 !important;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.6) !important;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.threshold-value {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}

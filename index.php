@@ -207,6 +207,11 @@
 				<div onclick="window.open('/cms-system/schedule/');" id="Layer_04" class="w3-bar-item w3-button sidebar-item" style=""><img src="/img/pending_actions_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg"></img><span style="margin-left:8px;color:white;">排程訊息發布設定</span></div>
 
 				<div onclick="SettingMapLayer(8);" id="Layer_08" class="w3-bar-item w3-button sidebar-item" style=""><img src="/img/view_kanban_24dp_FILL0_wght400_GRAD0_opsz24.svg"></img><span style="margin-left:8px;color:white;">車流動態導引面板</span></div>
+
+				<div href="javascript:void(0)" class="w3-bar-item w3-button sidebar-item" style="color:white;"
+					onclick="ShowSlopePage('iframe_62k_cms', this)"><img src="/img/bolt_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg"></img>
+					苗62訊息發布設定
+				</div>
 			</div>
 			<!-- ====================================================================== -->
 
@@ -299,6 +304,7 @@
 				<iframe id="iframe_21k" src="./default-1/public_html/manager-page/home-1.php" style="width:100%; height:100%; border:none; display:none;"></iframe>
 				<iframe id="iframe_62k" src="./default-1/public_html/manager-page/home-2.php" style="width:100%; height:100%; border:none; display:none;"></iframe>
 				<iframe id="iframe_5k200" src="./miaoli_62_5K+200_test/v2_api/index.php" style="width:100%; height:100%; border:none; display:none;"></iframe>
+				<iframe id="iframe_62k_cms" src="./miaoli_62/realtime_message.php" style="width:100%; height:100%; border:none; display:none;"></iframe>
 			</div>
 			<div id="full_image_container" style="display:none; height:calc(100vh - 51px); background-color: white;">
 				<iframe id="iframe_full_cctv" src="full_cctv.php" style="width:100%; height:100%; border:none;"></iframe>
@@ -429,20 +435,50 @@
 			require("cms-system/ConnMySQL.php");
 
 			if ($db_link == TRUE) {
-				$db_link->query("SET NAMES \"utf8\"");
+				$db_link->query("SET NAMES utf8");
 
-				$sql_query = "SELECT `id`, `status`, `info`, `last-ping-echo-time`, `lat`, `lon` FROM `01-cms-status` ORDER BY `id` ASC;";
+				$sql_query = "
+        SELECT 
+            a.`id`,
+            a.`status`,
+            a.`info`,
+            a.`last-ping-echo-time`,
+            a.`lat`,
+            a.`lon`,
+            b.`current_mode`,
+            b.`display_type`,
+            b.`text_content`,
+            b.`text_color`,
+            b.`text_size`,
+            b.`image_path`
+        FROM `01-cms-status` a
+        LEFT JOIN `cms_status` b ON a.`id` = b.`id`
+        ORDER BY a.`id` ASC
+    ";
+
 				$stmt = $db_link->prepare($sql_query);
 
 				if ($stmt == true) {
-					// $stmt->bind_param("s", $var); // 如果需要傳參數，取消註解並調整參數
 					$stmt->execute();
+					$stmt->store_result();
 
-					// 取代 get_result()，使用 bind_result() 獲取結果
-					$stmt->store_result(); // 儲存結果集
-					$stmt->bind_result($id, $status, $info, $last_ping_echo_time, $lat, $lon);
+					$stmt->bind_result(
+						$id,
+						$status,
+						$info,
+						$last_ping_echo_time,
+						$lat,
+						$lon,
+						$current_mode,
+						$display_type,
+						$text_content,
+						$text_color,
+						$text_size,
+						$image_path
+					);
 
 					$count_buf1 = 0;
+
 					while ($stmt->fetch()) {
 						$cms_dataList[] = [
 							"id" => $id,
@@ -450,34 +486,85 @@
 							"info" => $info,
 							"last-ping-echo-time" => $last_ping_echo_time,
 							"lat" => $lat,
-							"lon" => $lon
+							"lon" => $lon,
+							"current_mode" => $current_mode,
+							"display_type" => $display_type,
+							"text_content" => $text_content,
+							"text_color" => $text_color,
+							"text_size" => $text_size,
+							"image_path" => $image_path
 						];
+
+						if ($id >= 1 && $id <= 10) {
+							$popupHtml = "<div class='w3-center' style='min-width:128px;'>"
+								. "CMS-" . $id . "<br>"
+								. $info . "<br>"
+								. "<img src='/cms-system/cms-content-img/" . str_pad($id, 2, '0', STR_PAD_LEFT) . ".bmp' />"
+								. "</div>";
+						} elseif ($id >= 11 && $id <= 17) {
+							if ($display_type == 'image' && !empty($image_path)) {
+								$popupHtml = "<div class='w3-center' style='min-width:128px;'>"
+									. "CMS-" . $id . "<br>"
+									. $info . "<br>"
+									. "<img src='/miaoli_62/" . ltrim($image_path, "/") . "' />"
+									. "</div>";
+							} elseif ($display_type == 'text' && !empty($text_content)) {
+								$popupHtml = "<div class='w3-center' style='min-width:128px;'>"
+									. "CMS-" . $id . "<br>"
+									. $info . "<br>"
+									. $text_content
+									. "</div>";
+							} else {
+								$popupHtml = "<div class='w3-center' style='min-width:128px;'>"
+									. "CMS-" . $id . "<br>"
+									. $info . "<br>"
+									. "無資料"
+									. "</div>";
+							}
+						} else {
+							$popupHtml = "<div class='w3-center' style='min-width:128px;'>"
+								. "CMS-" . $id . "<br>"
+								. $info . "<br>"
+								. "無資料"
+								. "</div>";
+						}
 
 						if ($count_buf1 > 0) {
 							$CMS_MarkersList .= ',';
-						} else {
-							$CMS_MarkersList .= '';
 						}
 
-						$CMS_MarkersList .= '[' . $lat . ',' . $lon . ',' . '"/img/cms.png"' . ',' . '"<div class=\'w3-center\' style=\'min-width:128px;\'>' . 'CMS-' . $id . '<br>' . $info . '<br><img src=\'/cms-system/cms-content-img/' . str_pad($id, 2, '0', STR_PAD_LEFT) . '.bmp\' />' . '</div>"' . ',' . '""' . ',' . '""' . ']';
+						$CMS_MarkersList .= '['
+							. $lat . ','
+							. $lon . ','
+							. '"/img/cms.png"' . ','
+							. json_encode($popupHtml, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+							. ','
+							. '""' . ','
+							. '""' . ']';
 						$CMS_MarkersList .= "\n";
 
 						$count_buf1 += 1;
 					}
 
-					// print_r($cms_dataList);
-
 					$stmt->close();
 				}
+
 				$db_link->close();
 			}
-
-
 
 			?>
 
 			var CMS_MarkersList = [<?php echo $CMS_MarkersList; ?>];
-
+			// // 手動補上的 CMS 點位
+			// CMS_MarkersList.push(
+			// 	[24.472447, 120.804505, "/img/cms.png", "<div class='w3-center' style='min-width:128px;'>CMS</div>", "", ""],
+			// 	[24.455985, 120.877737, "/img/cms.png", "<div class='w3-center' style='min-width:128px;'>CMS</div>", "", ""],
+			// 	[24.414874, 120.862746, "/img/cms.png", "<div class='w3-center' style='min-width:128px;'>CMS</div>", "", ""],
+			// 	[24.48005066429962, 120.79652619480197, "/img/cms.png", "<div class='w3-center' style='min-width:128px;'>CMS</div>", "", ""],
+			// 	[24.452234691100653, 120.87451555193206, "/img/cms.png", "<div class='w3-center' style='min-width:128px;'>CMS</div>", "", ""],
+			// 	[24.4434694377443, 120.89073661698605, "/img/cms.png", "<div class='w3-center' style='min-width:128px;'>CMS</div>", "", ""],
+			// 	[24.46622216956653, 120.93849438624606, "/img/cms.png", "<div class='w3-center' style='min-width:128px;'>CMS</div>", "", ""]
+			// );
 			/*
 				var CMS_MarkersList = 
 				[
@@ -1367,7 +1454,7 @@
 			// 1. 新增全圖影像切換函式
 			function ShowFullImagePage(el) {
 				// A. 清除所有選單的亮起狀態 (包含邊坡與交通監測)
-				document.querySelectorAll('#SlopeMonitor a, #TrafficMonitor , .sidebar-item, #FullImageBtn').forEach(function(link) {
+				document.querySelectorAll('#SlopeMonitor a,#TrafficMonitor a, .sidebar-item , .sidebar-item a, #FullImageBtn').forEach(function(link) {
 					link.classList.remove('active-slope-link');
 				});
 
@@ -1404,7 +1491,7 @@
 			// 核心切換邏輯：修改後可接收 element 參數來處理亮起狀態
 			function ShowSlopePage(targetId, el) {
 				// 1. 清除所有邊坡監測選單的亮起狀態
-				document.querySelectorAll('#SlopeMonitor a, #TrafficMonitor a, #FullImageBtn').forEach(function(link) {
+				document.querySelectorAll('#SlopeMonitor a, #TrafficMonitor a, #FullImageBtn,.sidebar-item').forEach(function(link) {
 					link.classList.remove('active-slope-link');
 				});
 
@@ -1433,7 +1520,7 @@
 			// 修改回首頁函式
 			function ShowDefaultMap(el) {
 				// 清除選單亮起狀態
-				document.querySelectorAll('#SlopeMonitor a, #TrafficMonitor a, #FullImageBtn').forEach(function(link) {
+				document.querySelectorAll('#SlopeMonitor a, #TrafficMonitor a, #FullImageBtn,.sidebar-item').forEach(function(link) {
 					link.classList.remove('active-slope-link');
 				});
 

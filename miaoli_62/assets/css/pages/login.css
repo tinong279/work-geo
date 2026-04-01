@@ -1,0 +1,213 @@
+/**
+ * 登入頁面樣式
+ * 
+ * 檔案：login.php
+ * 說明：登入介面專用樣式
+ */
+
+/* ========== 頁面基礎樣式 ========== */
+body {
+    margin: 0;
+    font-family: 'Noto Sans TC', Arial, sans-serif;
+    background: url('../../images/login_backfround.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* ========== 登入容器 ========== */
+.login-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 90vh;
+    padding: 0 480px 0 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== 登入表單 ========== */
+#loginForm {
+    background: rgba(3, 28, 48, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 40px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+#loginForm::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 20px;
+    z-index: -1;
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px rgba(255, 255, 255, 0.5),
+            0 0 20px rgba(200, 230, 255, 0.4),
+            0 0 30px rgba(180, 220, 255, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 30px rgba(200, 230, 255, 0.6),
+            0 0 40px rgba(180, 220, 255, 0.5);
+    }
+}
+
+/* ========== Logo 樣式 ========== */
+.login-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.login-logo img {
+    max-width: 180px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ========== 表單標題 ========== */
+#loginForm h2 {
+    margin-bottom: 14px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+/* ========== 表單群組 ========== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+#loginForm label {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+}
+
+/* ========== 輸入框 ========== */
+#loginForm input {
+    width: 100%;
+    padding: 13px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+    font-size: 15px;
+    color: #fff;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    font-family: 'Noto Sans TC', Arial, sans-serif;
+}
+
+#loginForm input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+#loginForm input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #4fd1c5;
+    box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.1);
+}
+
+/* ========== 登入按鈕 ========== */
+#loginForm button {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #4fd1c5 0%, #3ba89f 100%);
+    color: #0d1b2a;
+    border: none;
+    border-radius: 32px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 14px;
+    letter-spacing: 1px;
+}
+
+#loginForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 209, 197, 0.5);
+}
+
+#loginForm button:active {
+    transform: translateY(0);
+}
+
+/* ========== 錯誤訊息 ========== */
+.error {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ========== 版權資訊 ========== */
+.copyright {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========== 響應式設計 ========== */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+        justify-content: center;
+    }
+
+    #loginForm {
+        max-width: 400px;
+    }
+}

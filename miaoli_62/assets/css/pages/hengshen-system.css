@@ -1,0 +1,238 @@
+/**
+ * 恆聖工程系統頁面樣式
+ * 
+ * 檔案：hengshen_system.php
+ * 說明：縣道149甲線 25K~26K 監測數據介面專用樣式
+ */
+
+/* ========== 覆蓋主內容區滾動 ========== */
+.main-content {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* ========== 恆聖容器 ========== */
+.hengshen-container {
+    padding: var(--space-24) var(--space-20);
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========== 標題區 ========== */
+.hengshen-header {
+    margin-bottom: var(--space-24);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.hengshen-title {
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-8);
+    background: linear-gradient(135deg, #32B8C6, #5F9EA0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hengshen-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ========== 卡片網格 ========== */
+.hengshen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-20);
+    margin-bottom: var(--space-24);
+}
+
+/* ========== 卡片樣式 ========== */
+.hengshen-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-20);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.hengshen-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== 卡片標題 ========== */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-16);
+    padding-bottom: var(--space-12);
+    border-bottom: 2px solid var(--color-primary);
+    flex-shrink: 0;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.card-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-4);
+}
+
+/* ========== 感測器表格 ========== */
+.sensor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--space-12);
+    font-size: 0.85rem;
+}
+
+.sensor-table th {
+    text-align: left;
+    padding: var(--space-8);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-semibold);
+    border-bottom: 2px solid var(--color-border);
+    background: rgba(50, 184, 198, 0.05);
+}
+
+.sensor-table td {
+    padding: var(--space-12) var(--space-8);
+    font-size: 0.85rem;
+    color: var(--color-text);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sensor-table tbody tr:hover {
+    background: rgba(50, 184, 198, 0.08);
+}
+
+.sensor-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
+.sensor-value {
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    font-family: 'Courier New', monospace;
+    color: var(--color-text);
+}
+
+.sensor-unit {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-left: var(--space-4);
+}
+
+/* ========== 狀態指示器 ========== */
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: var(--space-8);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.status-normal {
+    background-color: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+.status-warning {
+    background-color: #f97316;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
+}
+
+.status-danger {
+    background-color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+}
+
+/* ========== 更新時間顯示 ========== */
+.update-time {
+    text-align: center;
+    margin-top: auto;
+    padding: var(--space-12);
+    background: linear-gradient(135deg, rgba(50, 184, 198, 0.15), rgba(95, 158, 160, 0.1));
+    border-radius: var(--radius-lg);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+    border: 1px solid rgba(50, 184, 198, 0.3);
+    flex-shrink: 0;
+}
+
+/* ========== 閾值資訊 ========== */
+.threshold-info {
+    margin-top: auto;
+    padding: var(--space-12);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border-radius: var(--radius-base);
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.threshold-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-6) 0;
+    color: var(--color-text-secondary);
+}
+
+.threshold-row:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.threshold-label {
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-weight-medium);
+}
+
+.threshold-value {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+/* ========== 響應式設計 ========== */
+@media (max-width: 1400px) {
+    .hengshen-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hengshen-grid {
+        grid-template-columns: 1fr;
+    }
+}
